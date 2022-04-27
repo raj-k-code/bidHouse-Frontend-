@@ -1,0 +1,69 @@
+<div class="banner">
+    <img src="https://firebasestorage.googleapis.com/v0/b/productdb-eaa0c.appspot.com/o/PicsArt_04-26-03.45.59.jpg?alt=media&token=e2ff5102-125b-4a68-8e56-8808812f5953" class="img-fluid" width="100%" alt="" />
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col mt-5 text-center">
+            <h1>Categories</h1>
+        </div>
+    </div>
+    <div class="row mt-5 text-center">
+        <div *ngFor="let category of categoryList" class="col-md-6 col-sm-6 col-lg-4">
+            <img (click)="productByCategory(category.categoryName)" src="{{ category.categoryImage }}" class="img-fluid nvg" alt="" />
+            <h4>{{ category.categoryName | uppercase }}</h4>
+        </div>
+        <!-- <div class="col-md-6 col-sm-6 col-lg-4">
+            <a href=""><img src="./images/johnson-johnson-U6Q6zVDgmSs-unsplash.jpg" class="img-fluid nvg" alt="" /></a>
+            <h4>Lands</h4>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-4">
+            <a href=""><img src="./images/christelle-bourgeois-Aq7paIaerrY-unsplash.jpg" class="img-fluid nvg" alt="" /></a>
+            <h4>Antique</h4>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-4">
+            <a href=""><img src="./images/engin-akyurt-4IoFzrbw6bE-unsplash.jpg" class="img-fluid nvg" alt="" /></a>
+            <h4>Electronic</h4>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-4">
+            <a href=""><img src="./images/kristina-tamasauskaite-vOWmANoMJkY-unsplash.jpg" class="img-fluid nvg" alt="" /></a>
+            <h4>Electronic</h4>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-4">
+            <a href=""><img src="./images/lenstravelier-s_t7dWEzPGw-unsplash.jpg" class="img-fluid nvg" alt="" /></a>
+            <h4>Electronic</h4>
+        </div> -->
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col mt-5 text-center">
+            <h1>Our Products</h1>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div *ngFor="
+        let product of productList
+          | paginate: { itemsPerPage: 12, currentPage: page }
+      " class="col-md-3 col-sm-6 mt-5">
+            <div class="card text-center" style="width: 16rem">
+                <div class="card-img">
+                    <img class="card-img-top hto" src="{{ product.productImage }} " alt="Card image cap " />
+                </div>
+                <div class="card-body">
+                    <h4>{{ product.productName }}</h4>
+                    <p class="card-text">
+                        {{ product.productDesc }}
+                    </p>
+                    <button class="btn btn-outline-primary">View Auction</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col col-lg-4 col-md-2"></div>
+        <div class="col col-lg-4 col-md-8 col-sm-12">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+        <div class="col col-lg-4 col-md-2"></div>
+    </div>
+</div>
